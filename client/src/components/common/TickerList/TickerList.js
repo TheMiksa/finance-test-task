@@ -4,7 +4,7 @@ import { testId } from 'constants/testingConstants';
 
 const TickerList = ({ tickers }) => {
     return (
-        <div data-testid={testId.tickerList}>
+        <div className="tickerList" data-testid={testId.tickerList}>
             {!!tickers?.length && tickers.map(ticker => (
                 <Ticker data={ticker} key={ticker.ticker} />
             ))}
