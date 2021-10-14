@@ -1,9 +1,10 @@
 import './TickerList.css';
 import { Ticker } from 'components';
+import { testId } from 'constants/testingConstants';
 
 const TickerList = ({ tickers }) => {
     return (
-        <div style={{ width: 800, padding: 10 }}>
+        <div data-testid={testId.tickerList}>
             {!!tickers?.length && tickers.map(ticker => (
                 <Ticker data={ticker} key={ticker.ticker} />
             ))}
