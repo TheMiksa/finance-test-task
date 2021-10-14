@@ -1,0 +1,35 @@
+.tickerBlock {
+    height: 50px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-top: 1px solid #DADCE0;
+
+}
+.tickerName {
+    border: 2px solid slategray;
+    border-radius: 5px;
+    height: 20px;
+    margin-right: auto;
+    padding: 2px;
+}
+.tickerPrice {
+    min-width: 50px;
+    margin-right: 40px;
+}
+.tickerChange {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 50px;
+    margin-right: 20px;
+}
+.tickerChange:last-child {
+    margin-right: 10px;
+    border-radius: 8px;
+    height: 30px;
+    align-items: center;
+    padding: 0 8px;
+    background-color: #E6F4EA;
+    color: #137333;
+}
