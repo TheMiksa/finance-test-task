@@ -3,7 +3,7 @@ import './App.css';
 import socket from 'apiRequests/socket';
 import { TickerList } from 'components';
 
-function App() {
+const App = () => {
     const [tickers, setTickers] = useState([]);
 
   useEffect(() => {
@@ -15,7 +15,6 @@ function App() {
       socket.emit('start');
   }, []);
 
-    console.log('ticker data: ', tickers?.[0]);
   return (
     <div className="App">
         <TickerList tickers={tickers} />
