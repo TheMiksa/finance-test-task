@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import './App.css';
 import socket from 'apiRequests/socket';
-import { Ticker } from 'components';
+import { TickerList } from 'components';
 
 function App() {
     const [tickers, setTickers] = useState([]);
@@ -18,11 +18,7 @@ function App() {
     console.log('ticker data: ', tickers?.[0]);
   return (
     <div className="App">
-        <div style={{ width: 800, padding: 10 }}>
-            {!!tickers?.length && tickers.map(ticker => (
-                <Ticker data={ticker} key={ticker.ticker} />
-            ))}
-        </div>
+        <TickerList tickers={tickers} />
     </div>
   );
 }
