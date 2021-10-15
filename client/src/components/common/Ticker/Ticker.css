@@ -52,12 +52,10 @@
     background-color: #E7E7E7;
 }
 .tickerChangePercentUp {
-    justify-content: center;
     background-color: #E6F4EA;
     color: #137333;
 }
 .tickerChangePercentDown {
-    justify-content: center;
     background-color: #FCE8E6;
     color: #A50E0E;
 }
