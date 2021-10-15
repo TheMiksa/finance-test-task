@@ -8,12 +8,12 @@ const FETCH_INTERVAL = 5000;
 const PORT = process.env.PORT || 4000;
 
 const tickers = [
-  { ticker: 'AAPL', company: 'Apple' },
-  { ticker: 'GOOGL', company: 'Alphabet' },
-  { ticker: 'MSFT', company: 'Microsoft' },
-  { ticker: 'AMZN', company: 'Amazon' },
-  { ticker: 'FB', company: 'Facebook' },
-  { ticker: 'TSLA', company: 'Tesla' },
+  { ticker: 'AAPL', company: 'Apple', change_history: [] },
+  { ticker: 'GOOGL', company: 'Alphabet', change_history: [] },
+  { ticker: 'MSFT', company: 'Microsoft', change_history: [] },
+  { ticker: 'AMZN', company: 'Amazon', change_history: [] },
+  { ticker: 'FB', company: 'Facebook', change_history: [] },
+  { ticker: 'TSLA', company: 'Tesla', change_history: [] },
 ];
 
 function randomValue(min = 0, max = 1, precision = 0) {
@@ -28,16 +28,26 @@ function utcDate() {
 
 function getQuotes(socket) {
 
-  const quotes = tickers.map(ticker => ({
-    ...ticker,
-    exchange: 'NASDAQ',
-    price: randomValue(100, 300, 2),
-    change: randomValue(-100, 200, 2),
-    change_percent: randomValue(-1, 1, 2),
-    dividend: randomValue(0, 1, 2),
-    yield: randomValue(0, 2, 2),
-    last_trade_time: utcDate(),
-  }));
+  const quotes = tickers.map(({ change_history, ...ticker}) => {
+    const change = randomValue(-100, 200, 2);
+    const change_percent = randomValue(-1, 1, 2);
+    change_history.push({
+      change,
+      change_percent
+    });
+
+    return ({
+      ...ticker,
+      change_history,
+      exchange: 'NASDAQ',
+      price: randomValue(100, 300, 2),
+      change,
+      change_percent,
+      dividend: randomValue(0, 1, 2),
+      yield: randomValue(0, 2, 2),
+      last_trade_time: utcDate(),
+    })
+  });
 
   socket.emit('ticker', quotes);
 }
