@@ -29,17 +29,35 @@
     margin-right: 40px;
 }
 .tickerChange {
-    min-width: 50px;
+    min-width: 70px;
     margin-right: 20px;
     display: flex;
     justify-content: flex-end;
 }
-.tickerChange:last-child {
+.tickerChangeUp {
+    color: #137333;
+}
+.tickerChangeDown {
+    color: #A50E0E;
+}
+.tickerChangePercent {
+    min-width: 70px;
     height: 30px;
     margin-right: 10px;
     padding: 0 8px;
     border-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
+    background-color: #E7E7E7;
+}
+.tickerChangePercentUp {
+    justify-content: center;
     background-color: #E6F4EA;
     color: #137333;
+}
+.tickerChangePercentDown {
+    justify-content: center;
+    background-color: #FCE8E6;
+    color: #A50E0E;
 }
