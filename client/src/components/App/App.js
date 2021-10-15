@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import './App.css';
 import socket from 'apiRequests/socket';
 import { TickerList } from 'components';
+import transformToCamelCase from 'helpers/transformToCamelCase';
 
 const App = () => {
     const [tickers, setTickers] = useState([]);
@@ -10,7 +11,7 @@ const App = () => {
       console.log('here!');
 
       socket.on('ticker', data => {
-          setTickers(data);
+          setTickers(transformToCamelCase(data));
       });
       socket.emit('start');
   }, []);

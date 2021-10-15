@@ -51,7 +51,7 @@ const Ticker = ({ data }) => {
           <div className="tickerCompany">{data.company}</div>
           <div className="tickerPrice">{data.price}</div>
           {getChange(data.change)}
-          {getChangePercent(data.change_percent)}
+          {getChangePercent(data.changePercent)}
        </div>
    );
 };
