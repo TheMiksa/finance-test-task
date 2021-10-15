@@ -8,12 +8,12 @@ const FETCH_INTERVAL = 5000;
 const PORT = process.env.PORT || 4000;
 
 const tickers = [
-  'AAPL', // Apple
-  'GOOGL', // Alphabet
-  'MSFT', // Microsoft
-  'AMZN', // Amazon
-  'FB', // Facebook
-  'TSLA', // Tesla
+  { ticker: 'AAPL', company: 'Apple' },
+  { ticker: 'GOOGL', company: 'Alphabet' },
+  { ticker: 'MSFT', company: 'Microsoft' },
+  { ticker: 'AMZN', company: 'Amazon' },
+  { ticker: 'FB', company: 'Facebook' },
+  { ticker: 'TSLA', company: 'Tesla' },
 ];
 
 function randomValue(min = 0, max = 1, precision = 0) {
@@ -29,7 +29,7 @@ function utcDate() {
 function getQuotes(socket) {
 
   const quotes = tickers.map(ticker => ({
-    ticker,
+    ...ticker,
     exchange: 'NASDAQ',
     price: randomValue(100, 300, 2),
     change: randomValue(0, 200, 2),
