@@ -9,12 +9,20 @@
 }
 .tickerName {
     height: 20px;
-    margin-right: auto;
+    min-width: 60px;
+    margin-right: 20px;
     padding: 2px;
-    border: 2px solid slategray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px;
     background-color: #737373;
+    font-size: 14px;
     color: white;
+}
+.tickerCompany {
+    margin-right: auto;
+    font-weight: normal;
 }
 .tickerPrice {
     min-width: 50px;
