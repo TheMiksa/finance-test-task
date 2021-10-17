@@ -14,7 +14,7 @@ const Ticker = ({ data }) => {
            <div className="tickerBlock">
                <div className="tickerName">{data.ticker}</div>
                <div className="tickerCompany">{data.company}</div>
-               <div className="tickerPrice">{data.price}</div>
+               <div className="tickerPrice">{`${data.price}$`}</div>
                {getChange(data.change)}
                {getChangePercent(data.changePercent)}
                {isHistoryOpen ? (
