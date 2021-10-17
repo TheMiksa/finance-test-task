@@ -2,13 +2,13 @@ import './TickerHistory.css';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 const TickerHistory = ({ data }) => {
-    const newData = data.map((el, index) => ({ name: index, uv: +el.change }));
+    const newData = data.map((el, index) => ({ name: '', change: +el.change }));
     return <div>
         <LineChart width={800} height={400} data={newData}>
-            <Line type="monotone" dataKey="uv" stroke="#8884d8" name="$" />
+            <Line type="monotone" dataKey="change" stroke="#8884d8" name="change" />
             <CartesianGrid stroke="#ccc" />
             <XAxis dataKey="name" />
-            <YAxis />
+            <YAxis unit="$" />
             <Tooltip />
         </LineChart>
     </div>
