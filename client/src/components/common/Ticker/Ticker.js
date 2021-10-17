@@ -18,11 +18,11 @@ const Ticker = ({ data }) => {
                {getChange(data.change)}
                {getChangePercent(data.changePercent)}
                {isHistoryOpen ? (
-                   <Button onClick={() => setIsHistoryOpen(false)}>
+                   <Button onClick={() => setIsHistoryOpen(false)} data-testid={testId.minusButton}>
                        <MinusIcon />
                    </Button>
                ) : (
-                   <Button onClick={() => setIsHistoryOpen(true)}>
+                   <Button onClick={() => setIsHistoryOpen(true)} data-testid={testId.plusButton}>
                        <PlusIcon />
                    </Button>
                )}
