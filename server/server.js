@@ -36,6 +36,10 @@ function getQuotes(socket) {
       change_percent
     });
 
+    if (change_history.length > 25) {
+      change_history.splice(0, change_history.length - 25);
+    }
+
     return ({
       ...ticker,
       change_history,
