@@ -12,6 +12,8 @@ const App = () => {
           setTickers(transformToCamelCase(data));
       });
       socket.emit('start');
+
+      return () => socket.disconnect();
   }, []);
 
   return (
