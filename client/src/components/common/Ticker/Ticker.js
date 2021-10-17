@@ -10,8 +10,8 @@ const Ticker = ({ data }) => {
    const [isHistoryOpen, setIsHistoryOpen] = useState(false);
 
    return (
-       <div className="tickerWrapper">
-           <div className="tickerBlock" data-testid={testId.ticker}>
+       <div className="tickerWrapper" data-testid={testId.ticker}>
+           <div className="tickerBlock">
                <div className="tickerName">{data.ticker}</div>
                <div className="tickerCompany">{data.company}</div>
                <div className="tickerPrice">{data.price}</div>
