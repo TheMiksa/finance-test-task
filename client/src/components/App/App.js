@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import './App.css';
 import socket from 'apiRequests/socket';
 import { TickerList } from 'components';
-import transformToCamelCase from 'helpers/transformToCamelCase';
+import { transformToCamelCase } from 'helpers';
 
 const App = () => {
     const [tickers, setTickers] = useState([]);

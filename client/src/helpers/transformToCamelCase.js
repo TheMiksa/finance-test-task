@@ -1,4 +1,4 @@
-const transformToCamelCase = data => (
+export const transformToCamelCase = data => (
     data.map(oldObject => {
         const newObject = {};
 
@@ -11,5 +11,3 @@ const transformToCamelCase = data => (
 
         return newObject;
     }));
-
-export default transformToCamelCase;
