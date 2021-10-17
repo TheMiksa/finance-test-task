@@ -8,8 +8,6 @@ const App = () => {
     const [tickers, setTickers] = useState([]);
 
   useEffect(() => {
-      console.log('here!');
-
       socket.on('ticker', data => {
           setTickers(transformToCamelCase(data));
       });
