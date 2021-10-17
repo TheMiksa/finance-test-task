@@ -1,20 +1,11 @@
 import { Ticker } from 'components';
 import {screen, render, fireEvent} from '@testing-library/react';
-import { testId } from 'constants/testingConstants';
+import { testId, mockedTicker } from 'constants/testingConstants';
 import '@testing-library/jest-dom';
-
-const mockedData = {
-    ticker: 'ticker',
-    company: 'company',
-    price: 1245,
-    change: 144,
-    changePercent: 0.25,
-    changeHistory: [{ change: 144, changePercent: 0.25}],
-}
 
 describe('<Ticker />', () => {
     it('should render <Ticker /> with plus-button and without minus-button', () => {
-        render(<Ticker data={mockedData} />)
+        render(<Ticker data={mockedTicker} />)
 
         const ticker = screen.getByTestId(testId.ticker);
         const plusButton = screen.getByTestId(testId.plusButton);
@@ -25,7 +16,7 @@ describe('<Ticker />', () => {
         expect(minusButton).not.toBeInTheDocument();
     });
     it('should render <Ticker /> with minus-button and without plus-button after click on plus-button', () => {
-        render(<Ticker data={mockedData} />)
+        render(<Ticker data={mockedTicker} />)
 
         const ticker = screen.getByTestId(testId.ticker);
         const plusButton = screen.getByTestId(testId.plusButton);
@@ -38,7 +29,7 @@ describe('<Ticker />', () => {
         expect(screen.queryByTestId(testId.plusButton)).not.toBeInTheDocument();
     });
     it('should render <Ticker /> without <TickerHistory />', () => {
-        render(<Ticker data={mockedData} />)
+        render(<Ticker data={mockedTicker} />)
 
         const ticker = screen.getByTestId(testId.ticker);
         const tickerHistory = screen.queryByTestId(testId.tickerHistory);
@@ -47,7 +38,7 @@ describe('<Ticker />', () => {
         expect(tickerHistory).not.toBeInTheDocument();
     });
     it('should render <Ticker /> with <TickerHistory /> if you clicked on plus-button', () => {
-        render(<Ticker data={mockedData} />)
+        render(<Ticker data={mockedTicker} />)
 
         const ticker = screen.getByTestId(testId.ticker);
         const plusButton = screen.getByTestId(testId.plusButton);
@@ -59,7 +50,7 @@ describe('<Ticker />', () => {
         expect(tickerHistory).toBeInTheDocument();
     });
     it('should render <Ticker /> without <TickerHistory /> if you clicked on minus-button', () => {
-        render(<Ticker data={mockedData} />)
+        render(<Ticker data={mockedTicker} />)
 
         const ticker = screen.getByTestId(testId.ticker);
         const plusButton = screen.getByTestId(testId.plusButton);
