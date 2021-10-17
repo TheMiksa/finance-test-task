@@ -33,11 +33,11 @@ function getQuotes(socket) {
     const change_percent = randomValue(-1, 1, 2);
     change_history.push({
       change,
-      change_percent
+      change_percent,
     });
 
-    if (change_history.length > 25) {
-      change_history.splice(0, change_history.length - 25);
+    if (change_history.length > 50) {
+      change_history.splice(0, change_history.length - 50);
     }
 
     return ({
