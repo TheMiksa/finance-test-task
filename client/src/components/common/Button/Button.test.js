@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Button } from 'components';
 import { testId } from 'constants/index';
