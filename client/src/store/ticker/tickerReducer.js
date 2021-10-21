@@ -1,12 +1,12 @@
 import { UPDATE_TICKERS } from './tickerTypes';
 
-const initialState = [{}];
+const initialState = [];
 
 export const tickerReducer = ( state = initialState, action ) => {
     switch (action.type) {
         case UPDATE_TICKERS:
-            return [action.payload];
+            return [...action.payload];
         default:
-            return [...state]
+            return state;
     }
 };
