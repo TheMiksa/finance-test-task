@@ -1,15 +1,17 @@
-import {useEffect, useState} from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './App.css';
 import socket from 'apiRequests/socket';
 import { TickerList } from 'components';
 import { transformToCamelCase } from 'helpers';
+import { updateTickers } from 'store';
 
 const App = () => {
-    const [tickers, setTickers] = useState([]);
+    const dispatch = useDispatch();
 
   useEffect(() => {
       socket.on('ticker', data => {
-          setTickers(transformToCamelCase(data));
+          dispatch(updateTickers(transformToCamelCase(data)));
       });
       socket.emit('start');
 
@@ -18,7 +20,7 @@ const App = () => {
 
   return (
     <div className="App">
-        <TickerList tickers={tickers} />
+        <TickerList />
     </div>
   );
 }
